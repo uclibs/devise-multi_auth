@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'rspec/active_model/mocks'
 
 module Devise::MultiAuth
   describe Authentication do
@@ -41,7 +42,7 @@ module Devise::MultiAuth
       subject { described_class.new(attributes) }
 
       context 'without verified authentication' do
-        its(:verified?) { should eq(true) }
+        it { expect(subject.verified?).to eq true }
         it { expect(subject.to_access_token(client: client)).to respond_to :get }
         it { expect(subject.to_access_token(client: client)).to respond_to :post }
         it { expect(subject.to_access_token(client: client)).to respond_to :refresh! }
@@ -57,7 +58,7 @@ module Devise::MultiAuth
             "uid"=>uid,
           }
         }
-        its(:verified?) { should eq(false) }
+        it { expect(subject.verified?).to eq false }
         it {
           expect { subject.to_access_token(client: client) }.to raise_error(Devise::MultiAuth::AccessTokenUnverified)
         }

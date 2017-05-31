@@ -6,7 +6,7 @@ describe Devise::MultiAuth do
     context 'for registered oauth client' do
       let(:provider) { 'github' }
       subject { described_class.oauth_client_for(provider) }
-      its(:client_credentials) { should respond_to :get_token }
+      it { expect(subject.client_credentials).to respond_to :get_token }
     end
 
     context 'for unregistered oauth client' do

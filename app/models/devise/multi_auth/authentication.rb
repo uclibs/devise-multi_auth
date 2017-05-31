@@ -1,6 +1,6 @@
 module Devise::MultiAuth
   class Authentication < ActiveRecord::Base
-    belongs_to :user
+    belongs_to :user, optional: true
     self.table_name = 'devise_multi_auth_authentications'
 
     def self.to_access_token(options)
