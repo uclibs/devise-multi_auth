@@ -22,8 +22,8 @@ Gem::Specification.new do |s|
   s.test_files    = s.files.grep(/^(test|spec|features)\//)
   s.require_paths = ['lib']
 
-  s.add_dependency "rails", "5.0.3"
-  s.add_dependency "devise", "4.3.0"
+  s.add_dependency "rails"
+  s.add_dependency "devise", "4.4.0"
   s.add_dependency "omniauth", "~> 1.2"
 
   s.add_development_dependency 'database_cleaner', '1.0.1'
